@@ -1,0 +1,19 @@
+---
+- name: Install language
+  ansible.builtin.package:
+    name:
+      - go
+    state: latest
+  become: yes
+
+- name: Install tools
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - gotestsum
+
+- name: Config folder
+  ansible.builtin.file:
+    mode: "0755"
+    path: "{{ ansible_user_dir }}/Development/language/go"
+    state: directory

@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: set roles
+      set_fact:
+        roles: "{{ ansible_run_tags != ['all'] and ansible_run_tags or default_roles | difference(exclude_roles | default([])) }}"
+      tags:
+        - always
+
+    - name: Display roles
+      debug: "var=roles"
+      tags:
+        - always
+
+    - name: Run roles
+      include_role:
+        apply:
+          tags:
+            - "{{ item }}"
+        name: "{{ item }}"
+      with_items: "{{ roles }}"
+      tags:
+        - always
