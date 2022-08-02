@@ -1,6 +1,0 @@
----
-- name: Install
-  kewlfft.aur.aur:
-    use: yay
-    name:
-      - visual-studio-code-bin
