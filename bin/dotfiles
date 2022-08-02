@@ -3,6 +3,7 @@ set -e
 
 # Paths
 DOTFILES_DIR="$HOME/.dotfiles"
+CONFIG_DIR="$HOME/.config/dotfiles"
 
 # Install Ansible
 if ! [ -x "$(command -v ansible)" ]; then
@@ -19,7 +20,9 @@ fi
 cd "$DOTFILES_DIR"
 
 # Update Galaxy
-ansible-galaxy install -r requirements.yaml
+if [[ -f "$DOTFILES_DIR/requirements.yaml" ]]; then
+  ansible-galaxy install -r requirements.yaml
+fi
 
 # Run playbook
 ansible-playbook --diff --extra-vars "@$CONFIG_DIR/values.yaml" "$DOTFILES_DIR/main.yaml" "$@"
