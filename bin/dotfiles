@@ -2,13 +2,11 @@
 set -e
 
 # Paths
-CONFIG_DIR="$HOME/.config/dotfiles"
 DOTFILES_DIR="$HOME/.dotfiles"
-SSH_DIR="$HOME/.ssh"
 
 # Install Ansible
 if ! [ -x "$(command -v ansible)" ]; then
-  sudo pacman -S ansible --noconfirm
+  sudo apt install ansible -y
 fi
 
 # Clone repository
@@ -18,15 +16,10 @@ else
   git -C "$DOTFILES_DIR" pull
 fi
 
-# Create path
 cd "$DOTFILES_DIR"
 
 # Update Galaxy
-ansible-galaxy install -r requirements.yml
+ansible-galaxy install -r requirements.yaml
 
 # Run playbook
-if [[ -f "$CONFIG_DIR/vault-password.txt" ]]; then
-  ansible-playbook --diff --extra-vars "@$CONFIG_DIR/values.yaml" --vault-password-file "$CONFIG_DIR/vault-password.txt" "$DOTFILES_DIR/main.yaml" "$@"
-else
-  ansible-playbook --diff --extra-vars "@$CONFIG_DIR/values.yaml" "$DOTFILES_DIR/main.yaml" "$@"
-fi
+ansible-playbook --diff --extra-vars "@$CONFIG_DIR/values.yaml" "$DOTFILES_DIR/main.yaml" "$@"
