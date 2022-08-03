@@ -2,6 +2,8 @@
 
 ## Setup
 
+Ensure your system is up-to-date via `sudo apt update`
+
 > To customize your setup with values you want, for example your own git credentials you first need to create a `values.yaml` file using the command below
 
 ```
