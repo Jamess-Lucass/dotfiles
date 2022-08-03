@@ -25,4 +25,4 @@ cd "$DOTFILES_DIR"
 ansible-galaxy install -r requirements.yaml
 
 # Run playbook
-ansible-playbook --diff --extra-vars "@$CONFIG_DIR/values.yaml" "$DOTFILES_DIR/main.yaml" "$@"
+ansible-playbook --diff --extra-vars "@$CONFIG_DIR/values.yaml" "$DOTFILES_DIR/main.yaml" "$@" --ask-become-pass
