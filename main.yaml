@@ -12,6 +12,9 @@
         loop_var: roles_item
       with_items:
         - git
+        - fonts
         - neovim
+        - zsh
+        - oh-my-zsh
       tags:
         - always
