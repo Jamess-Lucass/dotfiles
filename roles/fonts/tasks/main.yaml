@@ -4,15 +4,22 @@
     path: "{{ ansible_user_dir }}/.fonts"
     state: directory
 
+- name: Check if font exists
+  stat:
+    path: "{{ ansible_user_dir}}/.fonts/Meslo LG S Bold Nerd Font Complete.ttf"
+  register: install
+
 - name: Install depdencies
   ansible.builtin.package:
     name:
       - unzip
     state: latest
   become: yes
+  when: not install.stat.exists
 
 - name: Download Meslo
   ansible.builtin.unarchive:
     src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip
     dest: "{{ ansible_user_dir }}/.fonts/"
     remote_src: yes
+  when: not install.stat.exists

@@ -1,11 +1,52 @@
 ---
+- name: Dependencies
+  ansible.builtin.package:
+    name:
+      - ninja-build 
+      - gettext 
+      - libtool 
+      - libtool-bin 
+      - autoconf 
+      - automake 
+      - cmake 
+      - g++ 
+      - pkg-config 
+      - unzip 
+      - curl 
+      - doxygen
+    state: latest
+  become: yes
+
+- name: Clone
+  ansible.builtin.git:
+    clone: yes
+    depth: 1
+    dest: "{{ ansible_user_dir }}/.config/github.com/neovim"
+    force: yes
+    repo: https://github.com/neovim/neovim.git
+    single_branch: yes
+    update: yes
+    version: "master"
+  register: clone
+  
+- name: Build
+  make:
+    chdir: "{{ ansible_user_dir }}/.config/github.com/neovim"
+    params:
+      CMAKE_BUILD_TYPE: RelWithDebInfo
+  when: clone.changed
+
 - name: Install
-  ansible.builtin.get_url:
-    url: "https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage"
-    dest: /usr/bin/nvim
-    owner: root
-    group: root
-    mode: "0755"
+  make:
+    chdir: "{{ ansible_user_dir }}/.config/github.com/neovim"
+    target: install
+  become: yes
+  when: clone.changed
+
+- name: Remove build folder
+  ansible.builtin.file:
+    path: "{{ ansible_user_dir }}/.config/github.com/neovim/build"
+    state: absent
   become: yes
 
 - name: Create config folder
@@ -17,4 +58,4 @@
 - name: Copy configuration files
   ansible.builtin.copy:
     dest: "{{ ansible_user_dir}}/.config/nvim"
-    src: "."
+    src: "./"

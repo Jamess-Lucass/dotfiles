@@ -13,6 +13,7 @@
       with_items:
         - git
         - fonts
+        - kitty
         - neovim
         - zsh
         - oh-my-zsh
