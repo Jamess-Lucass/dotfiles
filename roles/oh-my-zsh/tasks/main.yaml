@@ -1,0 +1,36 @@
+---
+- name: Check Existing Installation
+  stat:
+    path: "{{ ansible_user_dir }}/.oh-my-zsh"
+  register: install
+
+- name: Download
+  get_url:
+    dest: /tmp/ohmyzsh-install.sh
+    mode: 0755
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+  when: not install.stat.exists
+
+- name: Install
+  shell: /tmp/ohmyzsh-install.sh
+  when: not install.stat.exists
+
+- name: Remove Installation Script
+  file:
+    path: /tmp/ohmyzsh-install.sh
+    state: absent
+
+- name: Copy .zshrc
+  ansible.builtin.template:
+    dest: "{{ ansible_user_dir }}/.zshrc"
+    src: .zshrc.j2
+
+- name: Install syntax-highlighting plugin
+  ansible.builtin.git:
+    clone: yes
+    depth: 1
+    dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting
+    single_branch: yes
+    update: yes
+    version: master
