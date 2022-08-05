@@ -17,5 +17,6 @@
         - neovim
         - zsh
         - oh-my-zsh
+        - go
       tags:
         - always

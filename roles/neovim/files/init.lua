@@ -13,4 +13,7 @@ o.shiftwidth = 2
 o.backup = false
 o.termguicolors = true
 
+--mappings
+g.mapleader = "."
+
 require('james.packer')
