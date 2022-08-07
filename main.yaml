@@ -18,5 +18,6 @@
         - zsh
         - oh-my-zsh
         - go
+        - dotnet
       tags:
         - always
