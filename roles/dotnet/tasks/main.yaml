@@ -11,7 +11,21 @@
 - name: Install Runtime
   shell: /tmp/dotnet-install.sh -c 6.0 --runtime aspnetcore
 
-- name: Remove Installation Script
+- name: Remove Dotnet Installation Script
   file:
     path: /tmp/dotnet-install.sh
+    state: absent
+
+- name: Download nuget credential provider
+  get_url:
+    dest: /tmp/dotnet-credential-install.sh
+    mode: 0755
+    url: https://aka.ms/install-artifacts-credprovider.sh
+
+- name: Install credential provider
+  shell: /tmp/dotnet-credential-install.sh
+
+- name: Remove credential Installation Script
+  file:
+    path: /tmp/dotnet-credential-install.sh
     state: absent
