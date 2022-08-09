@@ -19,6 +19,17 @@ packer.reset()
 -- Packer
 use('wbthomason/packer.nvim')
 
+use {
+  'lspcontainers/lspcontainers.nvim',
+  requires = {
+    'neovim/nvim-lspconfig',
+    'nvim-lua/lsp_extensions.nvim',
+  },
+  config = function ()
+    require('james.plugins.lspconfig')
+  end
+}
+
 -- lua line
 use {
   'nvim-lualine/lualine.nvim',
@@ -33,6 +44,30 @@ use {
   run = 'TSUpdate',
   config = function ()
     require('james.plugins.treesitter')
+  end
+}
+
+-- completion
+use {
+  'hrsh7th/nvim-cmp',
+  requires = {
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-vsnip',
+    'hrsh7th/vim-vsnip',
+    'ray-x/cmp-treesitter',
+    {
+      'tzachar/cmp-tabnine',
+      run = "./install.sh",
+    },
+    'onsails/lspkind-nvim'
+  },
+  config = function ()
+    require('james.plugins.cmp')
+    require('james.plugins.cmp_tabnine')
+    require('lspkind').init()
   end
 }
 
