@@ -12,6 +12,10 @@ o.tabstop = 2
 o.shiftwidth = 2
 o.backup = false
 o.termguicolors = true
+o.ai = true
+o.si = true
+o.ignorecase = true
+o.showcmd = true
 
 --mappings
 g.mapleader = "."
