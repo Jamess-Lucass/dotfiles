@@ -1,0 +1,7 @@
+---
+- name: Install
+  get_url:
+    dest: /usr/local/bin/kind
+    mode: 0755
+    url: https://kind.sigs.k8s.io/dl/v0.14.0/kind-linux-amd64
+  become: yes
