@@ -1,0 +1,14 @@
+---
+- name: Download
+  get_url:
+    dest: /tmp/pnpm-install.sh
+    mode: 0755
+    url: https://get.pnpm.io/install.sh
+
+- name: Install pnpm
+  shell: /tmp/pnpm-install.sh
+
+- name: Remove pnpm Installation Script
+  file:
+    path: /tmp/pnpm-install.sh
+    state: absent

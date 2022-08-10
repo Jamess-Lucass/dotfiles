@@ -1,0 +1,14 @@
+---
+- name: Download
+  get_url:
+    dest: /tmp/nvm-install.sh
+    mode: 0755
+    url: https://raw.githubusercontent.com/creationix/nvm/master/install.sh
+
+- name: Install nvm
+  shell: /tmp/nvm-install.sh
+
+- name: Remove nvm Installation Script
+  file:
+    path: /tmp/nvm-install.sh
+    state: absent

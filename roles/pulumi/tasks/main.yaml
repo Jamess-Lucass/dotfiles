@@ -1,0 +1,14 @@
+---
+- name: Download
+  get_url:
+    dest: /tmp/pulumi-install.sh
+    mode: 0755
+    url: https://get.pulumi.com
+
+- name: Install pulumi
+  shell: /tmp/pulumi-install.sh
+
+- name: Remove pulumi Installation Script
+  file:
+    path: /tmp/pulumi-install.sh
+    state: absent

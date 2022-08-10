@@ -23,5 +23,8 @@
         - ripgrep
         - kind
         - k9s
+        - pulumi
+        - nvm
+        - pnpm
       tags:
         - always
