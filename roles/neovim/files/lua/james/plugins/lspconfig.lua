@@ -7,6 +7,7 @@ local defaultConfig = {
 local lspcontainer_servers = {
   "dockerls",
   "gopls",
+  "omnisharp",
   "html",
   "rust_analyzer",
   "sumneko_lua",

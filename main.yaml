@@ -20,5 +20,6 @@
         - oh-my-zsh
         - go
         - dotnet
+        - ripgrep
       tags:
         - always

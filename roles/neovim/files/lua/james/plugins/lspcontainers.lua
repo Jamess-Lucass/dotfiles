@@ -10,6 +10,14 @@ local function setup(config, server)
     config.root_dir = util.root_pattern(".git", vim.fn.getcwd())
   end
 
+  if server == "omnisharp" then
+    config.before_init = function(params)
+      params.processId = vim.NIL
+    end
+
+    config.root_dir = util.root_pattern("*.sln", "*.csproj", vim.fn.getcwd())
+  end
+
   if server == "rust_analyzer" then
     config.root_dir = util.root_pattern(".git", vim.fn.getcwd())
 
