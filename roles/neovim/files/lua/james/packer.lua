@@ -87,3 +87,14 @@ use {
     require('james.plugins.tokyonight')
   end
 }
+
+use {
+  'weilbith/nvim-code-action-menu',
+  requires = {
+    'kosayoda/nvim-lightbulb'
+  },
+  cmd = 'CodeActionMenu',
+  config = function ()
+    require('james.plugins.code_action_menu')
+  end
+}
