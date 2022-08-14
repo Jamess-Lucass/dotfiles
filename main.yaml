@@ -13,7 +13,6 @@
       with_items:
         - git
         - fonts
-        - kitty
         - nnn
         - neovim
         - zsh
@@ -26,5 +25,6 @@
         - pulumi
         - nvm
         - pnpm
+        - jq
       tags:
         - always
