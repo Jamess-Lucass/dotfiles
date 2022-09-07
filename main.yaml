@@ -26,5 +26,6 @@
         - nvm
         - pnpm
         - jq
+        - oh-my-tmux
       tags:
         - always
