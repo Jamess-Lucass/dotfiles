@@ -30,4 +30,4 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/Jamess-Lucass/dotfiles/m
 ```
 
 ## Updating
-To synchronize your environment with the main branch you can run 'dotfiles' from your shell.
+To synchronize your environment with the main branch you can run `dotfiles` from your shell.
