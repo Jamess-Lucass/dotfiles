@@ -28,3 +28,6 @@ git_user_name: JohnDoe
 ```shell
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Jamess-Lucass/dotfiles/main/bin/dotfiles)"`
 ```
+
+## Updating
+To synchronize your environment with the main branch you can run 'dotfiles' from your shell.
