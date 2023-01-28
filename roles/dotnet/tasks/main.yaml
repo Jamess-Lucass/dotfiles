@@ -6,10 +6,10 @@
     url: https://dot.net/v1/dotnet-install.sh
 
 - name: Install SDK
-  shell: /tmp/dotnet-install.sh -c 6.0
+  shell: /tmp/dotnet-install.sh -c 7.0
 
 - name: Install Runtime
-  shell: /tmp/dotnet-install.sh -c 6.0 --runtime aspnetcore
+  shell: /tmp/dotnet-install.sh -c 7.0 --runtime aspnetcore
 
 - name: Remove Dotnet Installation Script
   file:

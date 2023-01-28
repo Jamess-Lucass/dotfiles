@@ -15,8 +15,7 @@
         - fonts
         - nnn
         - neovim
-        - zsh
-        - oh-my-zsh
+        - ssh
         - go
         - dotnet
         - ripgrep
@@ -27,5 +26,7 @@
         - pnpm
         - jq
         - oh-my-tmux
+        - zsh
+        - oh-my-zsh
       tags:
         - always
