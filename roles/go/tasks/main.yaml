@@ -25,17 +25,17 @@
     path: /usr/local/go
     state: directory
   become: yes
-  when: version not in result
+  when: '"1.19.5" not in result.stdout'
 
 - name: Extract
   ansible.builtin.unarchive:
     src: /tmp/go.tar.gz
     dest: /usr/local
   become: yes
-  when: version not in result
+  when: '"1.19.5" not in result.stdout'
 
 - name: Remove Installation zip
   file:
     path: /tmp/go.tar.gz
     state: absent
-  when: version not in result
+  when: '"1.19.5" not in result.stdout'
