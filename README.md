@@ -44,7 +44,7 @@ git_user_name: JohnDoe
 > Run the following command in your WSL terminal
 
 ```shell
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Jamess-Lucass/dotfiles/main/bin/dotfiles)"`
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Jamess-Lucass/dotfiles/main/bin/dotfiles)"
 ```
 
 ## Updating
