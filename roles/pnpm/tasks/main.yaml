@@ -5,6 +5,11 @@
     mode: 0755
     url: https://get.pnpm.io/install.sh
 
+- name: Remove pnpm
+  file:
+    path: "{{ ansible_user_dir }}/.local/share/pnpm"
+    state: absent
+
 - name: Install pnpm
   shell: /tmp/pnpm-install.sh
 

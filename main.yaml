@@ -11,6 +11,7 @@
       loop_control:
         loop_var: roles_item
       with_items:
+        - system
         - git
         - fonts
         - nnn
