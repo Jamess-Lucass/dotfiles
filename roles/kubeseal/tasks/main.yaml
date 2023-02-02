@@ -1,0 +1,17 @@
+---
+- name: Download
+  get_url:
+    dest: /tmp/kubeseal.tar.gz
+    mode: 0755
+    url: https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.19.4/kubeseal-0.19.4-linux-amd64.tar.gz
+
+- name: Extract
+  ansible.builtin.unarchive:
+    src: /tmp/kubeseal.tar.gz
+    dest: /usr/local/bin
+  become: yes
+
+- name: Remove Installation zip
+  file:
+    path: /tmp/kubeseal.tar.gz
+    state: absent
