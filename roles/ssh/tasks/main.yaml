@@ -1,4 +1,9 @@
 ---
+- name: Create .ssh directory
+  file:
+    path: "{{ ansible_user_dir }}/.ssh"
+    state: directory
+
 - name: Copy config
   ansible.builtin.template:
     dest: "{{ ansible_user_dir }}/.ssh/config"
