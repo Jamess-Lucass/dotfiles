@@ -1,9 +1,19 @@
 ---
-- name: Add specified repository into sources list
-  ansible.builtin.apt_repository:
-    repo: "deb [arch=amd64,arm64,armhf] https://packages.microsoft.com/ubuntu/22.04/prod jammy main"
-    state: present
+- name: Download
+  get_url:
+    dest: /tmp/packages-microsoft-prod.deb
+    mode: 0755
+    url: https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb
+
+- name: Install a .deb package
+  ansible.builtin.apt:
+    deb: /tmp/packages-microsoft-prod.deb
   become: yes
+
+- name: Remove Installation zip
+  file:
+    path: /tmp/packages-microsoft-prod.deb
+    state: absent
 
 - name: Install dotnet 7
   ansible.builtin.package:
@@ -11,4 +21,5 @@
       - dotnet-sdk-7.0
       - aspnetcore-runtime-7.0
     state: latest
+    update_cache: yes
   become: yes
