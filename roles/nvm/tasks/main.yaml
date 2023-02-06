@@ -12,3 +12,12 @@
   file:
     path: /tmp/nvm-install.sh
     state: absent
+
+- name: Use LTS version for node
+  ansible.builtin.shell:
+    cmd: '[ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh" && nvm install --lts'
+
+- name: Install "dotenv-cli" node.js package globally.
+  npm:
+    name: dotenv-cli
+    global: yes
