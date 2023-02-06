@@ -28,7 +28,8 @@
         - jq
         - oh-my-tmux
         - zsh
-        - oh-my-zsh
         - kubeseal
+        - kustomize
+        - oh-my-zsh
       tags:
         - always

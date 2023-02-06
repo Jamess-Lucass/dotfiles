@@ -1,0 +1,17 @@
+---
+- name: Download
+  get_url:
+    dest: /tmp/kustomize.tar.gz
+    mode: 0755
+    url: https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.0.0/kustomize_v5.0.0_linux_amd64.tar.gz
+
+- name: Extract
+  ansible.builtin.unarchive:
+    src: /tmp/kustomize.tar.gz
+    dest: /usr/local/bin
+  become: yes
+
+- name: Remove Installation zip
+  file:
+    path: /tmp/kustomize.tar.gz
+    state: absent
