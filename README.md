@@ -50,6 +50,8 @@ If you are on an older version I recommend upgrading. This can by done by the fo
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Jamess-Lucass/dotfiles/main/bin/dotfiles)"
 ```
 
+Then close your terminal and re-open it. :)
+
 ## Updating
 
 To synchronize your environment with the main branch you can run `dotfiles` from your shell.
