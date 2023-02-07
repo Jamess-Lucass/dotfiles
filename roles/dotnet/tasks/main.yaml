@@ -11,3 +11,13 @@
     dest: "/usr/share/dotnet"
     remote_src: yes
   become: yes
+
+# The below is for omnisharp in VS Code
+- name: Create a symbolic link
+  ansible.builtin.file:
+    src: /usr/share/dotnet/dotnet
+    dest: /usr/local/bin/dotnet
+    owner: root
+    group: root
+    state: link
+  become: yes
