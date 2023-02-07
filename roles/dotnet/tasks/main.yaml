@@ -1,26 +1,13 @@
 ---
-- name: Download
-  get_url:
-    dest: /tmp/packages-microsoft-prod.deb
-    mode: 0755
-    url: https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb
-
-- name: Install a .deb package
-  ansible.builtin.apt:
-    deb: /tmp/packages-microsoft-prod.deb
-  become: yes
-
-- name: Remove Installation zip
+- name: Create .ssh directory
   file:
-    path: /tmp/packages-microsoft-prod.deb
-    state: absent
+    path: "/usr/share/dotnet"
+    state: directory
+  become: yes
 
 - name: Install dotnet 7
-  ansible.builtin.package:
-    name:
-      - dotnet-sdk-7.0
-      - aspnetcore-runtime-7.0
-    state: latest
-    update_cache: yes
+  ansible.builtin.unarchive:
+    src: https://download.visualstudio.microsoft.com/download/pr/c646b288-5d5b-4c9c-a95b-e1fad1c0d95d/e13d71d48b629fe3a85f5676deb09e2d/dotnet-sdk-7.0.102-linux-x64.tar.gz
+    dest: "/usr/share/dotnet"
+    remote_src: yes
   become: yes
-
