@@ -18,26 +18,29 @@ Release:        22.04
 Codename:       jammy
 ```
 
-If you are on an older version I recommend upgrading.
+If you are on an older version I recommend upgrading. This can by done by the following:
 
-Ensure your system is up-to-date via `sudo apt update`
+- `sudo apt update && sudo apt upgrade -y`
+- `do-release-upgrade -d`
 
-> To customize your setup with values you want, for example your own git credentials you first need to create a `values.yaml` file using the command below
+1.  Ensure your system is up-to-date via `sudo apt update`
 
-```
-cd $HOME && mkdir -p .config/dotfiles && vim .config/dotfiles/values.yaml
-```
+    > To customize your setup with values you want, for example your own git credentials you first need to create a `values.yaml` file using the command below
 
-There are two required values you must set. These are
-`git_user_email` and `git_user_name` they can be setup like the following:
+    ```shell
+    cd $HOME && mkdir -p .config/dotfiles && vim .config/dotfiles/values.yaml
+    ```
 
-values.yaml
+2.  There are two required values you must set. These are
+    `git_user_email` and `git_user_name` they can be setup like the following:
 
-```
----
-git_user_email: test@email.com
-git_user_name: JohnDoe
-```
+    values.yaml
+
+    ```
+    ---
+    git_user_email: test@email.com
+    git_user_name: JohnDoe
+    ```
 
 ## Install
 
