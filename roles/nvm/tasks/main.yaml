@@ -15,10 +15,5 @@
 
 - name: Use LTS version for node
   ansible.builtin.shell:
-    cmd: '[ -s "{{ ansible_user_dir }}/.nvm/nvm.sh" ] && \. "{{ ansible_user_dir }}/.nvm/nvm.sh" && nvm install --lts'
+    cmd: '[ -s "{{ ansible_user_dir }}/.nvm/nvm.sh" ] && \. "{{ ansible_user_dir }}/.nvm/nvm.sh" && nvm install --lts && npm install -g dotenv-cli'
   become: yes
-
-- name: Install "dotenv-cli" node.js package globally.
-  npm:
-    name: dotenv-cli
-    global: yes
