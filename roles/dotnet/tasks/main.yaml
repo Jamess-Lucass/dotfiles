@@ -21,3 +21,11 @@
     group: root
     state: link
   become: yes
+
+- name: Install dotnet tool dotnet-ef
+  shell: dotnet tool install --global dotnet-ef
+  ignore_errors: true
+
+- name: Install dotnet tool dotnet-reportgenerator-globaltool
+  shell: dotnet tool install --global dotnet-reportgenerator-globaltool
+  ignore_errors: true
