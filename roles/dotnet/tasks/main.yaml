@@ -1,5 +1,5 @@
 ---
-- name: Create .ssh directory
+- name: Create dotnet directory
   file:
     path: "/usr/share/dotnet"
     state: directory

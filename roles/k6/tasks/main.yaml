@@ -1,0 +1,26 @@
+---
+- name: Create h6 tmp directory
+  file:
+    path: /tmp/k6s
+    state: directory
+  become: yes
+
+- name: Download k6s
+  ansible.builtin.unarchive:
+    src: https://github.com/grafana/k6/releases/download/v0.43.1/k6-v0.43.1-linux-amd64.tar.gz
+    dest: /tmp/k6s
+    remote_src: yes
+  become: yes
+
+- name: Copy file
+  ansible.builtin.copy:
+    src: /tmp/k6s/k6-v0.43.1-linux-amd64/k6
+    dest: /usr/local/bin/k6
+    mode: 0755
+  become: yes
+
+- name: Remove Installation
+  ansible.builtin.file:
+    path: /tmp/k6s
+    state: absent
+  become: yes
