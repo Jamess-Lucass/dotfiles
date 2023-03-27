@@ -1,0 +1,7 @@
+---
+- name: Install
+  get_url:
+    dest: /usr/local/bin/snyk
+    mode: 0755
+    url: https://static.snyk.io/cli/latest/snyk-linux
+  become: yes

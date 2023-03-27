@@ -27,6 +27,7 @@
         - nvm
         - pnpm
         - jq
+        - snyk
         - oh-my-tmux
         - zsh
         - kubeseal
