@@ -1,7 +1,7 @@
 ---
 - name: Go Version
   set_fact:
-    version: 1.19.5
+    version: 1.20.3
 
 - name: check go version
   command: go version
@@ -14,28 +14,28 @@
     dest: /tmp/go.tar.gz
     mode: 0755
     url: "https://go.dev/dl/go{{ version }}.linux-amd64.tar.gz"
-    checksum: "sha256:36519702ae2fd573c9869461990ae550c8c0d955cd28d2827a6b159fda81ff95"
+    checksum: "sha256:979694c2c25c735755bf26f4f45e19e64e4811d661dd07b8c010f7a8e18adfca"
     force: no
     use_proxy: yes
     validate_certs: yes
-  when: '"1.19.5" not in result.stdout'
+  when: '"1.20.3" not in result.stdout'
 
 - name: Go directory
   file:
     path: /usr/local/go
     state: directory
   become: yes
-  when: '"1.19.5" not in result.stdout'
+  when: '"1.20.3" not in result.stdout'
 
 - name: Extract
   ansible.builtin.unarchive:
     src: /tmp/go.tar.gz
     dest: /usr/local
   become: yes
-  when: '"1.19.5" not in result.stdout'
+  when: '"1.20.3" not in result.stdout'
 
 - name: Remove Installation zip
   file:
     path: /tmp/go.tar.gz
     state: absent
-  when: '"1.19.5" not in result.stdout'
+  when: '"1.20.3" not in result.stdout'
