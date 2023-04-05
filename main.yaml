@@ -23,6 +23,7 @@
         - kind
         - k9s
         - k6
+        - cloudflared
         - pulumi
         - nvm
         - pnpm

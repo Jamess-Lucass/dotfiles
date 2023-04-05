@@ -1,0 +1,7 @@
+---
+- name: Install
+  get_url:
+    dest: /usr/local/bin/cloudflared
+    mode: 0755
+    url: https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
+  become: yes
