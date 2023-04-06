@@ -20,6 +20,13 @@
     validate_certs: yes
   when: '"1.20.3" not in result.stdout'
 
+- name: Delete Go directory
+  file:
+    path: /usr/local/go
+    state: absent
+  become: yes
+  when: '"1.20.3" not in result.stdout'
+
 - name: Go directory
   file:
     path: /usr/local/go
