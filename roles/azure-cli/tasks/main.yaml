@@ -1,0 +1,15 @@
+---
+- name: Download
+  get_url:
+    dest: /tmp/azure-cli-install.sh
+    mode: 0755
+    url: https://aka.ms/InstallAzureCLIDeb
+
+- name: Install azure-cli
+  shell: /tmp/azure-cli-install.sh
+  become: yes
+
+- name: Remove nvm Installation Script
+  file:
+    path: /tmp/azure-cli-install.sh
+    state: absent

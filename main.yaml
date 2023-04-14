@@ -21,6 +21,7 @@
         - ripgrep
         - kind
         - k9s
+        - azure-cli
         - k6
         - cloudflared
         - pulumi
