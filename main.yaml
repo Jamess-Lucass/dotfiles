@@ -25,6 +25,7 @@
         - k6
         - cloudflared
         - pulumi
+        - terraform
         - nvm
         - pnpm
         - jq

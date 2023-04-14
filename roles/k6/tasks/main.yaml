@@ -1,5 +1,5 @@
 ---
-- name: Create h6 tmp directory
+- name: Create k6 tmp directory
   file:
     path: /tmp/k6s
     state: directory
