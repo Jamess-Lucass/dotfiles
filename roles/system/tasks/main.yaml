@@ -3,5 +3,6 @@
   ansible.builtin.package:
     name:
       - net-tools
+      - make
     state: latest
   become: yes
