@@ -1,5 +1,8 @@
 # dotfiles
 
+> [!WARNING]  
+> This repository has been superseded by [dotfiles-nix](https://github.com/Jamess-Lucass/dotfiles-nix) and is no longer maintained.
+
 ## Setup
 
 I run ubuntu version `22.04.01` in WSL. As I have tested against this release I suggest you use the same version.
